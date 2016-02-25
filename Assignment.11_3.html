@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!-- Assignment –Make Use of NgClick event directive on the button to show an alert. -->
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="http://localhost:56130/angular.min.js"></script>
+
+    <script type="text/javascript">
+        var modObj = angular.module('myMod', []);
+
+        modObj.controller('mycontroller', function ($scope) {
+            $scope.showAlert = function () {
+                alert("Yo -- You Double-clicked me!");
+            }
+            $scope.clickCounter = 0;
+            $scope.doubleClickCounter = 0;
+        });
+    </script>
+</head>
+<body ng-app="myMod">
+    <div ng-controller="mycontroller">
+        <p  ng-click="clickCounter = clickCounter + 1" ng-dblclick="doubleClickCounter = doubleClickCounter + 1; showAlert()">Double-Click HERE</p>
+        <p><button ng-click="clickCounter = clickCounter + 1" ng-dblclick="doubleClickCounter = doubleClickCounter + 1; showAlert()">Click Here to Show Alert</button></p>
+        <p>Single Click Counter: {{clickCounter}}</p>
+        <p>Double Click Counter: {{doubleClickCounter}}</p>
+    </div>
+</body>
+</html>
